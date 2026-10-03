@@ -67,7 +67,8 @@ def ejecutar_estacion_central(rondas_por_cocinero=3):
     print("\n--- SIMULACIÓN DE ESTACIÓN CENTRAL FINALIZADA CON ÉXITO ---")
 
 if __name__ == "__main__":
-    ejecutar_estacion_central()
+    RONDAS = 3
+    ejecutar_estacion_central(rondas_por_cocinero=RONDAS)
     platos_esperados = N_COCINEROS * RONDAS
     platos_completados = sum(1 for log in fil_log if "Plato terminado" in log)
     
