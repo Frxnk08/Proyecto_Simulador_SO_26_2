@@ -68,3 +68,10 @@ def ejecutar_estacion_central(rondas_por_cocinero=3):
 
 if __name__ == "__main__":
     ejecutar_estacion_central()
+    platos_esperados = N_COCINEROS * RONDAS
+    platos_completados = sum(1 for log in fil_log if "Plato terminado" in log)
+    
+    if platos_completados == platos_esperados:
+        print(f"RESULTADO: ÉXITO - {platos_completados}/{platos_esperados} platos preparados sin interbloqueo")
+    else:
+        print(f"RESULTADO: ERROR - Solo se completaron {platos_completados}/{platos_esperados} platos (posible deadlock)")
