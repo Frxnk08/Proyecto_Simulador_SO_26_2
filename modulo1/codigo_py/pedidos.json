@@ -1,0 +1,34 @@
+[
+  {
+    "id": "P1",
+    "pid": 10425,
+    "descripcion": "Lomo Saltado",
+    "llegada": 0,
+    "duracion": 5,
+    "prioridad": 3
+  },
+  {
+    "id": "P2",
+    "pid": 10426,
+    "descripcion": "Ceviche Clasico",
+    "llegada": 1,
+    "duracion": 3,
+    "prioridad": 4
+  },
+  {
+    "id": "P3",
+    "pid": 10427,
+    "descripcion": "Anticuchos",
+    "llegada": 2,
+    "duracion": 8,
+    "prioridad": 1
+  },
+  {
+    "id": "P4",
+    "pid": 10428,
+    "descripcion": "Causa Limena",
+    "llegada": 3,
+    "duracion": 6,
+    "prioridad": 2
+  }
+]
