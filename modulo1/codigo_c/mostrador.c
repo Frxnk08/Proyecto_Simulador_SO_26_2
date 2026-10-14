@@ -11,6 +11,7 @@ struct Pedido {
     int llegada;
     int duracion;
     int prioridad;
+    int tamano;
     pid_t pid;
 };
 
@@ -35,10 +36,12 @@ static int escribir_json(const char *ruta, const struct Pedido *pedidos, size_t 
                     "    \"descripcion\": \"%s\",\n"
                     "    \"llegada\": %d,\n"
                     "    \"duracion\": %d,\n"
-                    "    \"prioridad\": %d\n"
+                    "    \"prioridad\": %d,\n"
+                    "    \"tamano\": %d\n"
                     "  }%s\n",
                     pedidos[i].id, (long)pedidos[i].pid, pedidos[i].descripcion,
                     pedidos[i].llegada, pedidos[i].duracion, pedidos[i].prioridad,
+                    pedidos[i].tamano,
                     i + 1 < cantidad ? "," : "") < 0) {
             goto error_escritura;
         }
@@ -61,10 +64,10 @@ error_escritura:
 int main(int argc, char *argv[])
 {
     struct Pedido pedidos[] = {
-        {"P1", "Lomo Saltado", 0, 5, 3, 0},
-        {"P2", "Ceviche Clasico", 1, 3, 4, 0},
-        {"P3", "Anticuchos", 2, 8, 1, 0},
-        {"P4", "Causa Limena", 3, 6, 2, 0}
+        {"P1", "Lomo Saltado",    0, 5, 3, 2, 0},
+        {"P2", "Ceviche Clasico", 1, 3, 4, 2, 0},
+        {"P3", "Anticuchos",      2, 8, 1, 3, 0},
+        {"P4", "Causa Limena",    3, 6, 2, 3, 0}
     };
     const size_t cantidad = sizeof pedidos / sizeof pedidos[0];
     const char *ruta_json = argc == 2 ? argv[1] : "../pedidos.json";

@@ -50,7 +50,7 @@ class Metrica:
 Tramo = tuple[str, int, int]
 Resultado = tuple[list[Tramo], dict[str, Metrica]]
 
-# Conjunto oficial de referencia de la practica (P1 a P4)
+# Conjunto oficial de referencia (P1 a P4)
 CONJUNTO_OFICIAL: tuple[Proceso, ...] = (
     Proceso("P1", llegada=0, duracion=5, prioridad=3, pid=1001, descripcion="Lomo Saltado"),
     Proceso("P2", llegada=1, duracion=3, prioridad=4, pid=1002, descripcion="Ceviche Clasico"),
