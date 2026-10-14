@@ -34,6 +34,7 @@ class Proceso:
     prioridad: int
     pid: int | None = None
     descripcion: str = ""
+    tamano: int = 1  # NUEVO: estantes/marcos que ocupa el pedido
 
 
 @dataclass(frozen=True)
@@ -52,19 +53,19 @@ Resultado = tuple[list[Tramo], dict[str, Metrica]]
 
 # Conjunto oficial de referencia (P1 a P4)
 CONJUNTO_OFICIAL: tuple[Proceso, ...] = (
-    Proceso("P1", llegada=0, duracion=5, prioridad=3, pid=1001, descripcion="Lomo Saltado"),
-    Proceso("P2", llegada=1, duracion=3, prioridad=4, pid=1002, descripcion="Ceviche Clasico"),
-    Proceso("P3", llegada=2, duracion=8, prioridad=1, pid=1003, descripcion="Anticuchos"),
-    Proceso("P4", llegada=3, duracion=6, prioridad=2, pid=1004, descripcion="Causa Limena"),
+    Proceso("P1", llegada=0, duracion=5, prioridad=3, pid=1001, descripcion="Lomo Saltado", tamano=2),
+    Proceso("P2", llegada=1, duracion=3, prioridad=4, pid=1002, descripcion="Ceviche Clasico", tamano=2),
+    Proceso("P3", llegada=2, duracion=8, prioridad=1, pid=1003, descripcion="Anticuchos", tamano=3),
+    Proceso("P4", llegada=3, duracion=6, prioridad=2, pid=1004, descripcion="Causa Limena", tamano=3),
 )
 
 # Segundo conjunto propuesto por el equipo
 CONJUNTO_EQUIPO: tuple[Proceso, ...] = (
-    Proceso("Q1", llegada=0, duracion=4, prioridad=2, pid=2001, descripcion="Arroz con Pollo"),
-    Proceso("Q2", llegada=1, duracion=7, prioridad=4, pid=2002, descripcion="Aji de Gallina"),
-    Proceso("Q3", llegada=2, duracion=2, prioridad=1, pid=2003, descripcion="Papa Rellena"),
-    Proceso("Q4", llegada=4, duracion=5, prioridad=3, pid=2004, descripcion="Seco de Res"),
-    Proceso("Q5", llegada=6, duracion=3, prioridad=2, pid=2005, descripcion="Tacu Tacu"),
+    Proceso("Q1", llegada=0, duracion=4, prioridad=2, pid=2001, descripcion="Arroz con Pollo", tamano=2),
+    Proceso("Q2", llegada=1, duracion=7, prioridad=4, pid=2002, descripcion="Aji de Gallina", tamano=2),
+    Proceso("Q3", llegada=2, duracion=2, prioridad=1, pid=2003, descripcion="Papa Rellena", tamano=2),
+    Proceso("Q4", llegada=4, duracion=5, prioridad=3, pid=2004, descripcion="Seco de Res", tamano=3),
+    Proceso("Q5", llegada=6, duracion=3, prioridad=2, pid=2005, descripcion="Tacu Tacu", tamano=3),
 )
 
 
@@ -88,6 +89,7 @@ def cargar_pedidos_json(ruta: str) -> list[Proceso]:
             prioridad=int(item["prioridad"]),
             pid=int(item["pid"]) if "pid" in item else None,
             descripcion=str(item.get("descripcion", "")),
+            tamano=int(item.get("tamano", 1)),
         )
         procesos.append(p)
 
@@ -108,6 +110,8 @@ def validar_procesos(procesos: Sequence[Proceso]) -> None:
             raise ValueError(f"El tiempo de llegada de {p.id} no puede ser negativo.")
         if p.duracion <= 0:
             raise ValueError(f"La duracion de {p.id} debe ser mayor que cero.")
+        if p.tamano <= 0:
+            raise ValueError(f"El tamano de {p.id} debe ser mayor que cero.")
         ids.add(p.id)
 
 

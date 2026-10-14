@@ -1,3 +1,6 @@
+# Python cache
+__pycache__/
+*.pyc
 
 # Archivos generados del Modulo 1
 /modulo1/pedidos.json
