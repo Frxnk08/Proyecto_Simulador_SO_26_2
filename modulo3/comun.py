@@ -1,4 +1,4 @@
-"""Modulo comun para la gestion de memoria de CocinaPeru Express (Modulo 3).
+"""Modulo comun para la gestion de memoria de Rincon del Sabor (Modulo 3).
 
 Responsable: Persona 4 (Leonel)
 Provee constantes globales, calculo de intervalos de ocupacion (basado en FCFS)
