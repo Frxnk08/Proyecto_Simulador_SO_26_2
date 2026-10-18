@@ -1,7 +1,7 @@
 # RECOMENDACIÓN TÉCNICA DE REEMPLAZO DE PÁGINAS
 
 **Caso:** CocinaPerú Express — Gestión de Almacén y Memoria Virtual  
-**Responsable:** Grupo M     
+**Responsable:** Grupo M 
 
 ---
 
