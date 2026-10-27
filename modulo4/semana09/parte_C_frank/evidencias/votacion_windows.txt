@@ -1,0 +1,7 @@
+SO-Sim / DeliFIIS - Parte C: votacion (polling)
+Metodo: espera activa; el programa vigila continuamente el reloj.
+Periodo: 0.50 s
+Duracion nominal: 3.25 s
+Avisos detectados: 6
+Instantes observados (s): [0.500000, 1.000000, 1.500007, 2.000000, 2.500000, 3.000000]
+Consultas al reloj: 13861029
