@@ -26,43 +26,55 @@ DIR_MODULO4 = os.path.dirname(os.path.abspath(__file__))
 DIR_PROYECTO = os.path.abspath(os.path.join(DIR_MODULO4, '..'))
 DIR_MODULO1 = os.path.join(DIR_PROYECTO, 'modulo1', 'codigo_py')
 
-if DIR_MODULO4 not in sys.path:
-    sys.path.insert(0, DIR_MODULO4)
-if DIR_MODULO1 not in sys.path:
-    sys.path.insert(0, DIR_MODULO1)
+for d in (DIR_PROYECTO, DIR_MODULO4, DIR_MODULO1):
+    if d not in sys.path:
+        sys.path.insert(0, d)
 
-# Importar M1 de forma tolerante
+# Importar M1 de forma tolerante (reconocible por el linter de VS Code)
 try:
-    from simulador_planificacion import CONJUNTO_EQUIPO, CONJUNTO_OFICIAL, Proceso, fcfs
+    from modulo1.codigo_py.simulador_planificacion import (  # type: ignore
+        CONJUNTO_EQUIPO,
+        CONJUNTO_OFICIAL,
+        Proceso,
+        fcfs,
+    )
 except ImportError:
-    # Definicion de respaldo en caso de ejecucion aislada
-    class Proceso:  # type: ignore
-        def __init__(self, id, llegada, duracion, prioridad=1, **kwargs):
-            self.id = id
-            self.llegada = llegada
-            self.duracion = duracion
-            self.prioridad = prioridad
+    try:
+        from simulador_planificacion import (  # type: ignore
+            CONJUNTO_EQUIPO,
+            CONJUNTO_OFICIAL,
+            Proceso,
+            fcfs,
+        )
+    except ImportError:
+        # Definicion de respaldo en caso de ejecucion aislada
+        class Proceso:  # type: ignore
+            def __init__(self, id, llegada, duracion, prioridad=1, **kwargs):
+                self.id = id
+                self.llegada = llegada
+                self.duracion = duracion
+                self.prioridad = prioridad
 
-    CONJUNTO_OFICIAL = (
-        Proceso('P1', 0, 5), Proceso('P2', 1, 3),
-        Proceso('P3', 2, 8), Proceso('P4', 3, 6)
-    )
-    CONJUNTO_EQUIPO = (
-        Proceso('Q1', 0, 4), Proceso('Q2', 1, 7),
-        Proceso('Q3', 2, 2), Proceso('Q4', 4, 5),
-        Proceso('Q5', 6, 3)
-    )
+        CONJUNTO_OFICIAL = (
+            Proceso('P1', 0, 5), Proceso('P2', 1, 3),
+            Proceso('P3', 2, 8), Proceso('P4', 3, 6)
+        )
+        CONJUNTO_EQUIPO = (
+            Proceso('Q1', 0, 4), Proceso('Q2', 1, 7),
+            Proceso('Q3', 2, 2), Proceso('Q4', 4, 5),
+            Proceso('Q5', 6, 3)
+        )
 
-    def fcfs(procesos):
-        t, gantt, metricas = 0, [], {}
-        for p in sorted(procesos, key=lambda x: (x.llegada, x.id)):
-            if t < p.llegada:
-                t = p.llegada
-            ini = t
-            t += p.duracion
-            gantt.append((p.id, ini, t))
-            metricas[p.id] = type('Metrica', (), {'fin': t})()
-        return gantt, metricas
+        def fcfs(procesos):
+            t, gantt, metricas = 0, [], {}
+            for p in sorted(procesos, key=lambda x: (x.llegada, x.id)):
+                if t < p.llegada:
+                    t = p.llegada
+                ini = t
+                t += p.duracion
+                gantt.append((p.id, ini, t))
+                metricas[p.id] = type('Metrica', (), {'fin': t})()
+            return gantt, metricas
 
 
 # ==============================================================================
