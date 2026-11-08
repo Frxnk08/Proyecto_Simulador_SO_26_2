@@ -29,9 +29,6 @@ _LETRAS = {"r": 4, "w": 2, "x": 1}
 
 
 def puede(usuario: str, inodo: Inodo, operacion: str) -> bool:
-    """Evalua si 'usuario' puede realizar 'operacion' ('r', 'w' o 'x') sobre el inodo.
-    Aplica una sola clase en orden de precedencia: propietario, si no grupo, si no otros.
-    """
     if operacion not in _LETRAS:
         raise ValueError(f"Operacion invalida: {operacion!r}. Debe ser 'r', 'w' o 'x'")
     if usuario == inodo.propietario:
@@ -44,7 +41,6 @@ def puede(usuario: str, inodo: Inodo, operacion: str) -> bool:
 
 
 class SistemaArchivosIntegrado:
-    """Mini-directorio autocontenido conectado a un DiscoVirtual de bloques."""
 
     def __init__(self, disco: DiscoVirtual | None = None):
         self.disco = disco if disco is not None else DiscoVirtual(num_bloques=16, perfil="delifiis")
@@ -90,7 +86,6 @@ class SistemaArchivosIntegrado:
         return partes
 
     def _crear_directorio(self, ruta: str, propietario: str = "chef", grupo: str = "cocineros", permisos: int = 0o755) -> int:
-        """Crea directorios recursivamente en el mini-directorio."""
         actual = self.raiz
         for nombre in self._partes(ruta):
             entradas = self.directorios[actual]
@@ -110,7 +105,6 @@ class SistemaArchivosIntegrado:
         grupo: str = "cocineros",
         permisos: int = 0o640,
     ) -> int:
-        """Registra un archivo en el mini-directorio y escribe su contenido en DiscoVirtual."""
         partes = self._partes(ruta)
         dir_partes, nombre_archivo = partes[:-1], partes[-1]
 
@@ -144,7 +138,6 @@ class SistemaArchivosIntegrado:
         return inodo_archivo
 
     def _inicializar_fichas(self):
-        """Inicializa las recetas de control de la practica y del caso DeliFIIS."""
         # 1. ceviche.txt (control: 640, chef=rw, ayudante=r, visitante=nada)
         cont_ceviche = b"Receta oficial de Ceviche Clasico DeliFIIS: pescado, limon, aji limo, cebolla roja."
         self.agregar_archivo(
