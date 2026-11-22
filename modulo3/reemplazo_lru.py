@@ -1,5 +1,5 @@
 """Modulo 3 - Reemplazo de paginas LRU.
-Caso: CocinaPeru Express
+Caso: DeliFIIS
 """
 
 from __future__ import annotations

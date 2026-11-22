@@ -1,5 +1,5 @@
 """Modulo 3 - Comparacion Final de Estrategias de Gestion de Memoria.
-Caso: CocinaPeru Express
+Caso: DeliFIIS
 
 Responsable: Persona 4 (Leonel)
 Une y compara cuantitativa y conceptualmente las tres tecnicas de memoria:
@@ -61,13 +61,13 @@ def simular_paginacion(datos_conjunto):
 def ejecutar_comparacion():
     print("=" * 80)
     print("MODULO 3 - COMPARACION GENERAL DE ESTRATEGIAS DE MEMORIA")
-    print("CocinaPeru Express - Torre de Control")
+    print("DeliFIIS - Torre de Control")
     print("=" * 80)
 
     # 1. Asignacion Contigua
     print("\n>>> 1. ASIGNACION CONTIGUA (Primer Ajuste / First-Fit)")
-    rechazados_contigua_q = contigua.simular_asignacion_contigua("Conjunto Alternativo Q1-Q5", CONJUNTO_EQUIPO)
-    rechazados_contigua_p = contigua.simular_asignacion_contigua("Conjunto de Control P1-P4", CONJUNTO_OFICIAL)
+    contigua.simular_asignacion_contigua("Conjunto Alternativo Q1-Q5", CONJUNTO_EQUIPO)
+    contigua.simular_asignacion_contigua("Conjunto de Control P1-P4", CONJUNTO_OFICIAL)
 
     # 2. Paginacion
     print("\n>>> 2. PAGINACION (Marcos no contiguos)")

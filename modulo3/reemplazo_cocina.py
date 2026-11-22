@@ -1,4 +1,4 @@
-"""Modulo 3 - Cadena de referencias de CocinaPeru Express."""
+"""Modulo 3 - Cadena de referencias de DeliFIIS."""
 
 from __future__ import annotations
 

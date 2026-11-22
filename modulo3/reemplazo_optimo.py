@@ -1,5 +1,5 @@
 """Modulo 3 - Algoritmo de Reemplazo de Paginas: Optimo (Belady / MIN).
-Caso: CocinaPeru Express
+Caso: DeliFIIS
 
 Responsable: Persona 3 (Leonel)
 Implementa el algoritmo de reemplazo Optimo:

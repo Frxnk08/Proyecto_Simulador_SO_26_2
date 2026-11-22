@@ -1,6 +1,6 @@
 # RECOMENDACIÓN TÉCNICA DE REEMPLAZO DE PÁGINAS
 
-**Caso:** CocinaPerú Express — Gestión de Almacén y Memoria Virtual  
+**Caso:** DeliFIIS — Gestión de Almacén y Memoria Virtual  
 **Responsable:** Grupo M 
 
 ---
