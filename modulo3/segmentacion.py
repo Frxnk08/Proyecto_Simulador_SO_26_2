@@ -1,4 +1,4 @@
-"""Modulo 3 - Segmentacion (base y limite) - Rincon del Sabor.
+"""Modulo 3 - Segmentacion (base y limite) - DeliFIIS.
 
 Cada pedido se divide en segmentos (codigo, datos, pila). La direccion logica
 es (segmento, desplazamiento). Es valida solo si el desplazamiento es menor que
