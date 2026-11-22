@@ -1,5 +1,5 @@
 """Simulador de planificacion de procesos - Modulo 1: Torre de Control
-Caso: CocinaPeru Express
+Caso: DeliFIIS
 
 Permite planificar pedidos mediante cuatro algoritmos:
 - FCFS (First-Come, First-Served)
@@ -301,7 +301,7 @@ def imprimir_recomendacion(resultados: dict[str, Resultado]) -> None:
     menor_espera = min(resultados, key=lambda n: promedio(resultados[n][1], "espera"))
     menor_respuesta = min(resultados, key=lambda n: promedio(resultados[n][1], "respuesta"))
     print("\n" + "=" * 80)
-    print("RECOMENDACION OPERATIVA PARA COCINAPERU EXPRESS:")
+    print("RECOMENDACION OPERATIVA PARA DELIFIIS:")
     print("=" * 80)
     print(f"- Para MINIMIZAR LA ESPERA TOTAL: Usar '{menor_espera}' "
           f"(Espera prom: {promedio(resultados[menor_espera][1], 'espera'):.2f}s).")
@@ -354,7 +354,7 @@ def ejecutar_caso(nombre: str, procesos: Sequence[Proceso], quantum: int) -> dic
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Simulador de Planificacion de Procesos - CocinaPeru Express (SW407)"
+        description="Simulador de Planificacion de Procesos - DeliFIIS (SW407)"
     )
     parser.add_argument(
         "--archivo",

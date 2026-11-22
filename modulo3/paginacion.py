@@ -1,5 +1,5 @@
 """Modulo 3 - Paginacion.
-Caso: CocinaPeru Express
+Caso: DeliFIIS
 
 Simula la asignacion de paginas a marcos y traduce direcciones virtuales.
 """
