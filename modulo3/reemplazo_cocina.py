@@ -7,7 +7,10 @@ import sys
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "modulo1", "codigo_py")))
 
-from simulador_planificacion import CONJUNTO_EQUIPO, CONJUNTO_OFICIAL, round_robin
+try:
+    from modulo1.codigo_py.simulador_planificacion import CONJUNTO_EQUIPO, CONJUNTO_OFICIAL, round_robin
+except ImportError:
+    from simulador_planificacion import CONJUNTO_EQUIPO, CONJUNTO_OFICIAL, round_robin  # type: ignore
 
 
 def cadena_cocina(conjunto="equipo", quantum=4):
