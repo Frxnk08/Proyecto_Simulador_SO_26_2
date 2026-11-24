@@ -1,6 +1,6 @@
 # RECOMENDACIÓN TÉCNICA DE SISTEMAS DE ARCHIVOS
 
-**Caso:** CocinaPerú Express — Estructura de Archivos y Asignación de Bloques  
+**Caso:** DeliFIIS — Estructura de Archivos y Asignación de Bloques  
 **Responsable:** Grupo M  
 
 ---
