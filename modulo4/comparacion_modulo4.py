@@ -51,7 +51,7 @@ def cargar_y_verificar():
 
     print("=================================================================")
     print("  MODULO 4: VERIFICACION INTEGRAL (SEMANA 9 E/S + SEMANA 10 FS)")
-    print("  Simulador SO-Sim · Caso DeliFIIS (CocinaPeru Express)")
+    print("  Simulador SO-Sim · Caso DeliFIIS")
     print("=================================================================\n")
 
     for etiqueta, nombre_modulo in MODULOS_MODULO4:
