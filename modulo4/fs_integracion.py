@@ -166,9 +166,9 @@ class SistemaArchivosIntegrado:
         except Exception:
             fichas = [
                 ("P1", "Lomo Saltado", 2),
-                ("P2", "Causa Limena", 2),
-                ("P3", "Aji de Gallina", 3),
-                ("P4", "Anticuchos", 3),
+                ("P2", "Ceviche Clasico", 2),
+                ("P3", "Anticuchos", 3),
+                ("P4", "Causa Limena", 3),
             ]
 
         # Bloques de 6 a 15 para las 4 fichas DeliFIIS
